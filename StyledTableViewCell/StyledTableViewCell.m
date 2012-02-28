@@ -99,7 +99,7 @@
     }
     [self.layer insertSublayer:gradient atIndex:0];
     [gradient setColors:_selectedBackgroundGradientColors];
-    
+   
     [super drawRect:rect];
 }
 
@@ -193,7 +193,6 @@
     [self setDashWidth:dashWidth];
     [self setDashGap:dashGap];
     [self setDashStroke:dashStroke];
-    [(StyledTableViewCellBackgroundView*)self.backgroundView setNeedsDisplay];
 }
 
 // set the separator dash gap

@@ -45,7 +45,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) return 5;
+    if (section==0) return 4;
     else if (section==1) return 2;
     else if (section==2) return 4;
     else if (section==3) return 4;
@@ -54,121 +54,256 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"StyledTableViewCell";
-    StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell)
-    {
-        cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell.textLabel setTextColor:[UIColor grayColor]];
-        [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
-        [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
-        
-    }
-    
     if (indexPath.section==0)
     {
-        [cell setDashWidth:1 dashGap:3 dashStroke:1];
         if (indexPath.row==0)
         {
+            static NSString *CellIdentifier = @"CYAN";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleCyan];
+                
+            }
             [cell.textLabel setText:@"CYAN"];
-            [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleCyan];
+            return cell;
         }
         else if (indexPath.row==1)
         {
+            static NSString *CellIdentifier = @"GREEN";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleGreen];
+                
+            }
             [cell.textLabel setText:@"GREEN"];
-            [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleGreen];
+            return cell;
         }
         else if (indexPath.row==2)
         {
-            [cell.textLabel setText:@"YELLOW"];
-            [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleYellow];
+            static NSString *CellIdentifier = @"PURPLE";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStylePurple];
+                
+            }
+            [cell.textLabel setText:@"PURPLE"];
+            return cell;
         }
         else if (indexPath.row==3)
         {
-            [cell.textLabel setText:@"PURPLE"];
-            [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStylePurple];
-        }
-        else
-        {
-            [cell.textLabel setText:@"DEFAULT"];
-            [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleDefault];
+            static NSString *CellIdentifier = @"YELLOW";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleYellow];
+                
+            }
+            [cell.textLabel setText:@"YELLOW"];
+            return cell;
         }
     }
     else if (indexPath.section==1)
     {
-        [cell setDashWidth:1 dashGap:3 dashStroke:1];
+        
         if (indexPath.row==0)
         {
+            static NSString *CellIdentifier = @"CUSTOM2";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                
+                NSMutableArray *colors = [NSMutableArray array];
+                [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:234/255.0 blue:0 alpha:1] CGColor]];
+                [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                
+            }
             [cell.textLabel setText:@"CUSTOM - 2 colors"];
-            NSMutableArray *colors = [NSMutableArray array];
-            [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:234/255.0 blue:0 alpha:1] CGColor]];
-            [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
-            [cell setSelectedBackgroundViewGradientColors:colors];
+            return cell;
         }
         else if (indexPath.row==1)
         {
+            static NSString *CellIdentifier = @"CUSTOM3";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                
+                NSMutableArray *colors = [NSMutableArray array];
+                [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
+                [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:234/255.0 blue:0 alpha:1] CGColor]];
+                [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                
+            }
             [cell.textLabel setText:@"CUSTOM - 3 colors"];
-            NSMutableArray *colors = [NSMutableArray array];
-            [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
-            [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:234/255.0 blue:0 alpha:1] CGColor]];
-            [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
-            [cell setSelectedBackgroundViewGradientColors:colors];
+            return cell;
         }
     }
     else if (indexPath.section==2)
     {
-        [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleCyan];
+        
         if (indexPath.row==0)
         {
+            static NSString *CellIdentifier = @"SOLID_LINE";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleDefault];
+                [cell setDashWidth:3 dashGap:0 dashStroke:1];
+            }
             [cell.textLabel setText:@"SEPARATOR - SOLID LINE"];
-            [cell setDashWidth:3 dashGap:0 dashStroke:1];
+            return cell;
         }
         else if (indexPath.row==1)
         {
+            static NSString *CellIdentifier = @"DOTTED_LINE";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleDefault];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+            }
             [cell.textLabel setText:@"SEPARATOR - DOTTED LINE"];
-            [cell setDashWidth:1 dashGap:3 dashStroke:1];
+            return cell;
         }
-        else if (indexPath.row==2)
+        else if (indexPath.row>=2)
         {
+            static NSString *CellIdentifier = @"DASH";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleDefault];
+                [cell setDashWidth:5 dashGap:3 dashStroke:1];
+            }
             [cell.textLabel setText:@"SEPARATOR - DASHES"];
-            [cell setDashWidth:5 dashGap:3 dashStroke:1];
-        }
-        else if (indexPath.row==3)
-        {
-            [cell.textLabel setText:@""];
-            [cell setDashWidth:5 dashGap:3 dashStroke:1];
+            return cell;
         }
     }
     else if (indexPath.section==3)
     {
         NSMutableArray *colors = [NSMutableArray array];
+        //[colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
         [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:234/255.0 blue:0 alpha:1] CGColor]];
         [colors addObject:(id)[[UIColor colorWithRed:255/255.0 green:174/255.0 blue:0 alpha:1] CGColor]];
-        [cell setSelectedBackgroundViewGradientColors:colors];
         
         if (indexPath.row==0)
         {
+            static NSString *CellIdentifier = @"VERTICAL";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionVertical];
+            }
             [cell.textLabel setText:@"VERTICAL (DEFAULT)"];
-            [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionVertical];
+            return cell;
         }
         else if (indexPath.row==1)
         {
+            static NSString *CellIdentifier = @"HORIZONTAL";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionHorizontal];
+            }
             [cell.textLabel setText:@"HORIZONTAL"];
-            [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionHorizontal];
+            return cell;
         }
         else if (indexPath.row==2)
         {
+            static NSString *CellIdentifier = @"DIAGONAL1";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight];
+            }
             [cell.textLabel setText:@"DIAGONAL - TOP LEFT TO BOTTOM RIGHT"];
-            [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight];
+            return cell;
         }
         else if (indexPath.row==3)
         {
+            static NSString *CellIdentifier = @"DIAGONAL2";
+            StyledTableViewCell *cell = (StyledTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (!cell)
+            {
+                cell = [[StyledTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell.textLabel setTextColor:[UIColor grayColor]];
+                [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+                [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+                [cell setDashWidth:1 dashGap:3 dashStroke:1];
+                [cell setSelectedBackgroundViewGradientColors:colors];
+                [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight];
+            }
             [cell.textLabel setText:@"DIAGONAL - BOTTOM LEFT TO TOP RIGHT"];
-            [cell setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight];
+            return cell;
         }
     }
-    
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
