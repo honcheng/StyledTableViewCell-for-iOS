@@ -58,6 +58,7 @@
 
 @implementation StyledTableViewCellSelectedBackgroundView
 @synthesize selectedBackgroundGradientColors = _selectedBackgroundGradientColors;
+@synthesize gradientDirection = _gradientDirection;
 
 - (void)drawRect:(CGRect)rect
 {
@@ -76,8 +77,26 @@
     // draw the selected background gradient
     CAGradientLayer *gradient = [CAGradientLayer layer];
     [gradient setFrame:CGRectMake(0,0,self.frame.size.width,self.frame.size.height-self.dashStroke)];
-    [gradient setStartPoint:CGPointMake(0, 0)];
-    [gradient setEndPoint:CGPointMake(0, 1)];
+    if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionVertical)
+    {
+        [gradient setStartPoint:CGPointMake(0, 0)];
+        [gradient setEndPoint:CGPointMake(0, 1)];
+    }
+    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionHorizontal)
+    {
+        [gradient setStartPoint:CGPointMake(0, 0)];
+        [gradient setEndPoint:CGPointMake(1, 0)];
+    }
+    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight)
+    {
+        [gradient setStartPoint:CGPointMake(0, 0)];
+        [gradient setEndPoint:CGPointMake(1, 1)];
+    }
+    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight)
+    {
+        [gradient setStartPoint:CGPointMake(0, 1)];
+        [gradient setEndPoint:CGPointMake(1, 0)];
+    }
     [self.layer insertSublayer:gradient atIndex:0];
     [gradient setColors:_selectedBackgroundGradientColors];
     
@@ -154,6 +173,12 @@
     [self setSelectedBackgroundViewGradientColors:colors];
 }
 
+// set the selected background color gradient direction
+- (void)setSelectionGradientDirection:(StyledTableViewCellSelectionGradientDirection)direction
+{
+    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setGradientDirection:direction];
+}
+
 // overrides the method that changes the cell separator color
 // there is no need to call this method
 - (void)setSeparatorColor:(UIColor*)separatorColor
@@ -168,6 +193,7 @@
     [self setDashWidth:dashWidth];
     [self setDashGap:dashGap];
     [self setDashStroke:dashStroke];
+    [(StyledTableViewCellBackgroundView*)self.backgroundView setNeedsDisplay];
 }
 
 // set the separator dash gap

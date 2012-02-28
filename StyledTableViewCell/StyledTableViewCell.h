@@ -18,6 +18,14 @@ typedef enum
     StyledTableViewCellSelectionStylePurple = 4,
 } StyledTableViewCellSelectionStyle;
 
+typedef enum
+{
+    StyledTableViewCellSelectionGradientDirectionVertical = 0,
+    StyledTableViewCellSelectionGradientDirectionHorizontal = 1,
+    StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight = 2,
+    StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight = 3,
+} StyledTableViewCellSelectionGradientDirection;
+
 // background view
 // use to draw separator line
 @interface StyledTableViewCellBackgroundView : UIView
@@ -29,6 +37,7 @@ typedef enum
 // subclass of background view, set the colors
 @interface StyledTableViewCellSelectedBackgroundView : StyledTableViewCellBackgroundView
 @property (strong) NSArray *selectedBackgroundGradientColors;
+@property (nonatomic, assign) StyledTableViewCellSelectionGradientDirection gradientDirection;
 @end
 
 @interface StyledTableViewCell : UITableViewCell
@@ -43,6 +52,8 @@ typedef enum
 // set the selected background color by providing an array of colors
 // requires a list of CGColor 
 - (void)setSelectedBackgroundViewGradientColors:(NSArray*)colors;
+// set the selected background color gradient direction
+- (void)setSelectionGradientDirection:(StyledTableViewCellSelectionGradientDirection)direction;
 
 // set the selected background color using style
 @property (nonatomic, assign, setter = setStyledTableViewCellSelectionStyle:) StyledTableViewCellSelectionStyle styledTableViewCellSelectionStyle;
