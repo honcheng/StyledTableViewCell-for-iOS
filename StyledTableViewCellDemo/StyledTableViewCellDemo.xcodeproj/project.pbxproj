@@ -16,6 +16,7 @@
 		F8DF554114FC78C80086395D /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DF554014FC78C80086395D /* DemoTableViewController.m */; };
 		F8DF554414FC799B0086395D /* StyledTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DF554314FC799B0086395D /* StyledTableViewCell.m */; };
 		F8DF554A14FC79CB0086395D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DF554914FC79CB0086395D /* QuartzCore.framework */; };
+		F8E5A7B4152A9D1F002ABE23 /* StyleListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5A7B3152A9D1F002ABE23 /* StyleListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		F8DF554214FC799B0086395D /* StyledTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledTableViewCell.h; sourceTree = "<group>"; };
 		F8DF554314FC799B0086395D /* StyledTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledTableViewCell.m; sourceTree = "<group>"; };
 		F8DF554914FC79CB0086395D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F8E5A7B2152A9D1F002ABE23 /* StyleListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleListTableViewController.h; sourceTree = "<group>"; };
+		F8E5A7B3152A9D1F002ABE23 /* StyleListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				F8DF553714FC78320086395D /* AppDelegate.m */,
 				F8DF553F14FC78C80086395D /* DemoTableViewController.h */,
 				F8DF554014FC78C80086395D /* DemoTableViewController.m */,
+				F8E5A7B2152A9D1F002ABE23 /* StyleListTableViewController.h */,
+				F8E5A7B3152A9D1F002ABE23 /* StyleListTableViewController.m */,
 				F8DF553E14FC78600086395D /* StyledTableViewCell */,
 				F8DF552E14FC78310086395D /* Supporting Files */,
 			);
@@ -179,6 +184,7 @@
 				F8DF553814FC78320086395D /* AppDelegate.m in Sources */,
 				F8DF554114FC78C80086395D /* DemoTableViewController.m in Sources */,
 				F8DF554414FC799B0086395D /* StyledTableViewCell.m in Sources */,
+				F8E5A7B4152A9D1F002ABE23 /* StyleListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +288,7 @@
 				F8DF553D14FC78320086395D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
