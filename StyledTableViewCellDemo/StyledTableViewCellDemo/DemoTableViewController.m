@@ -182,7 +182,6 @@
             [cell.textLabel setTextColor:[UIColor grayColor]];
             [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
             [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
-            [cell setDashWidth:1 dashGap:3 dashStroke:1];
             [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleCyan];
             [cell setDashWidth:1 dashGap:3 dashStroke:1];
         }
@@ -199,7 +198,6 @@
             [cell.textLabel setTextColor:[UIColor grayColor]];
             [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
             [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
-            [cell setDashWidth:1 dashGap:3 dashStroke:1];
             [cell setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStyleCyan];
             [cell setDashWidth:5 dashGap:3 dashStroke:1];
         }

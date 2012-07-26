@@ -57,25 +57,25 @@
 - (void)drawRect:(CGRect)rect
 {
     // if no separator color is set, use this
-    if (!_separatorColor)
+    if (!self.separatorColor)
     {
         _separatorColor = [UIColor colorWithRed:190/255.0 green:183/255.0 blue:145/255.0 alpha:1];
     }
     
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(c, [_separatorColor CGColor]);
-    CGContextSetLineWidth(c, _dashStroke);
+    CGContextSetLineWidth(c, self.dashStroke);
     
     // if gap==0, draw a continuous line
-    if (_dashGap>0)
+    if (self.dashGap>0)
     {
-        float dash[2] = { _dashWidth , _dashGap};
+        float dash[2] = { self.dashWidth , self.dashGap};
         CGContextSetLineDash(c,0,dash,2);
     }
     
     CGContextBeginPath(c);
-    CGContextMoveToPoint(c, 0.0f, rect.size.height-_dashStroke/2);
-    CGContextAddLineToPoint(c, rect.size.width, rect.size.height-_dashStroke/2);
+    CGContextMoveToPoint(c, 0.0f, rect.size.height-self.dashStroke/2);
+    CGContextAddLineToPoint(c, rect.size.width, rect.size.height-self.dashStroke/2);
     CGContextStrokePath(c);
 }
 
@@ -225,24 +225,24 @@
 - (void)setDashGap:(int)dashGap
 {
     _dashGap = dashGap;
-    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashGap:_dashGap];
-    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashGap:_dashGap];
+    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashGap:self.dashGap];
+    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashGap:self.dashGap];
 }
 
 // set the separator stroke width
 - (void)setDashStroke:(int)dashStroke
 {
     _dashStroke = dashStroke;
-    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashStroke:_dashStroke];
-    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashStroke:_dashStroke];
+    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashStroke:self.dashStroke];
+    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashStroke:self.dashStroke];
 }
 
 // set the separator dash width
 - (void)setDashWidth:(int)dashWidth
 {
     _dashWidth = dashWidth;
-    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashWidth:_dashWidth];
-    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashWidth:_dashWidth];
+    [(StyledTableViewCellSelectedBackgroundView*)self.selectedBackgroundView setDashWidth:self.dashWidth];
+    [(StyledTableViewCellBackgroundView*)self.backgroundView setDashWidth:self.dashWidth];
 }
 
 @end

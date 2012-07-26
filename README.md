@@ -13,9 +13,13 @@ Features
 Usage
 -----
 
-1) Subclass StyledTableViewCell 
+1) Subclass StyledTableViewCell
 
-2) Use setDashWidth:dashGap:dashStroke: to configure custom cell separators
+2) Set UITableView separator to none to hide the default separator
+
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
+3) Use setDashWidth:dashGap:dashStroke: to configure custom cell separators
 
 e.g. dashes for separators
 
@@ -27,15 +31,19 @@ e.g. dotted-lines for separators
 
     [self setDashWidth:1 dashGap:3 dashStroke:1];
 
+4) Set UITableView separator color to set the custom separator color
+
+    [self.tableView setSeparatorColor:[UIColor colorWithWhite:0.7 alpha:1]];
+
 <img width=250 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/cyan-dottedlines.png"/>
 
-3) Use setStyledTableViewCellSelectionStyle: to set background colors of cell when selected, using preset colors
+5) Use setStyledTableViewCellSelectionStyle: to set background colors of cell when selected, using preset colors
 
     [self setStyledTableViewCellSelectionStyle:StyledTableViewCellSelectionStylePurple];
 
 <img width=250 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/purple.png"/>
 
-4) Use setSelectedBackgroundGradientColors: to set background colors of cell when selected, using custom gradients
+6) Use setSelectedBackgroundGradientColors: to set background colors of cell when selected, using custom gradients
 
 e.g. gradient of 2 colors
 
@@ -56,7 +64,7 @@ e.g. gradient of 3 colors
 
 <img width=250 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/3colors.png"/>
 
-5) Use setSelectionGradientDirection: to set direction of gradient when cell is selected
+7) Use setSelectionGradientDirection: to set direction of gradient when cell is selected
 
 e.g. horizontal gradient
 
