@@ -84,13 +84,13 @@
     if (!self.selectedBackgroundGradientColors)
     {
         // use this color if no gradient color exists
-        self.selectedBackgroundGradientColors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:0.9 alpha:1] CGColor],(id)[[UIColor colorWithWhite:0.95 alpha:1] CGColor], nil];
+        self.selectedBackgroundGradientColors = @[(id)[[UIColor colorWithWhite:0.9 alpha:1] CGColor],(id)[[UIColor colorWithWhite:0.95 alpha:1] CGColor]];
     }
     else if ([self.selectedBackgroundGradientColors count]==1)
     {
         // at least 2 colors are required to set gradient
         // if only one color provided, use the same color for both extremes of the gradient
-        self.selectedBackgroundGradientColors = [NSArray arrayWithObjects:[self.selectedBackgroundGradientColors objectAtIndex:0],[self.selectedBackgroundGradientColors objectAtIndex:0], nil];
+        self.selectedBackgroundGradientColors = @[[self.selectedBackgroundGradientColors objectAtIndex:0],[self.selectedBackgroundGradientColors objectAtIndex:0]];
     }
     
     // draw the selected background gradient
