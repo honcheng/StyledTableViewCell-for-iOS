@@ -34,5 +34,4 @@
 #import <UIKit/UIKit.h>
 
 @interface StyleListTableViewController : UITableViewController
-
 @end

@@ -94,10 +94,12 @@ e.g. diagonally from top left to bottom right
 
 <img width=250 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal2.png"/>
 
-ARC
----
+Requirements
+------------
 
-This project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for all the files in this project.
+* QuartzCore framework
+* This project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for all the files in this project.
+* XCode 4.4 and newer (auto-synthesis required)
 
 Contact
 ------

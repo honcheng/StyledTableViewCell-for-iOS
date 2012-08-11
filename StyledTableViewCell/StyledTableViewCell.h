@@ -61,16 +61,16 @@ typedef enum
 // selected background view
 // subclass of background view, set the colors
 @interface StyledTableViewCellSelectedBackgroundView : StyledTableViewCellBackgroundView
-@property (strong) NSArray *selectedBackgroundGradientColors;
+@property (nonatomic, strong) NSArray *selectedBackgroundGradientColors;
 @property (nonatomic, assign) StyledTableViewCellSelectionGradientDirection gradientDirection;
 @end
 
 @interface StyledTableViewCell : UITableViewCell
 
 // set the separator line property
-@property (nonatomic, assign, setter = setDashWidth:) int dashWidth;
-@property (nonatomic, assign, setter = setDashGap:) int dashGap;
-@property (nonatomic, assign, setter = setDashStroke:) int dashStroke;
+@property (nonatomic, assign) int dashWidth;
+@property (nonatomic, assign) int dashGap;
+@property (nonatomic, assign) int dashStroke;
 - (void)setDashWidth:(int)dashWidth dashGap:(int)dashGap dashStroke:(int)dashStroke;
 - (void)setSeparatorColor:(UIColor*)separatorColor;
 

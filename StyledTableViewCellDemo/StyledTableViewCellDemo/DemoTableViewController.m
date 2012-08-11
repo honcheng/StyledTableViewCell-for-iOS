@@ -34,12 +34,7 @@
 #import "DemoTableViewController.h"
 #import "StyledTableViewCell.h"
 
-@interface DemoTableViewController ()
-
-@end
-
 @implementation DemoTableViewController
-@synthesize demoTableViewStyle = _demoTableViewStyle;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

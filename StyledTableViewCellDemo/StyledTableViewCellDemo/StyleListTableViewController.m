@@ -34,10 +34,6 @@
 #import "StyleListTableViewController.h"
 #import "DemoTableViewController.h"
 
-@interface StyleListTableViewController ()
-
-@end
-
 @implementation StyleListTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style

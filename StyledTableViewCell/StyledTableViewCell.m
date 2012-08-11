@@ -35,10 +35,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation StyledTableViewCellBackgroundView
-@synthesize dashWidth = _dashWidth;
-@synthesize dashGap = _dashGap;
-@synthesize dashStroke = _dashStroke;
-@synthesize separatorColor = _separatorColor;
 
 - (BOOL) isOpaque 
 {
@@ -59,7 +55,7 @@
     // if no separator color is set, use this
     if (!self.separatorColor)
     {
-        _separatorColor = [UIColor colorWithRed:190/255.0 green:183/255.0 blue:145/255.0 alpha:1];
+        [self setSeparatorColor:[UIColor colorWithRed:190/255.0 green:183/255.0 blue:145/255.0 alpha:1]];
     }
     
     CGContextRef c = UIGraphicsGetCurrentContext();
@@ -82,48 +78,46 @@
 @end
 
 @implementation StyledTableViewCellSelectedBackgroundView
-@synthesize selectedBackgroundGradientColors = _selectedBackgroundGradientColors;
-@synthesize gradientDirection = _gradientDirection;
 
 - (void)drawRect:(CGRect)rect
 {
-    if (!_selectedBackgroundGradientColors)
+    if (!self.selectedBackgroundGradientColors)
     {
         // use this color if no gradient color exists
-        _selectedBackgroundGradientColors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:0.9 alpha:1] CGColor],(id)[[UIColor colorWithWhite:0.95 alpha:1] CGColor], nil];
+        self.selectedBackgroundGradientColors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:0.9 alpha:1] CGColor],(id)[[UIColor colorWithWhite:0.95 alpha:1] CGColor], nil];
     }
-    else if ([_selectedBackgroundGradientColors count]==1)
+    else if ([self.selectedBackgroundGradientColors count]==1)
     {
         // at least 2 colors are required to set gradient
         // if only one color provided, use the same color for both extremes of the gradient
-        _selectedBackgroundGradientColors = [NSArray arrayWithObjects:[_selectedBackgroundGradientColors objectAtIndex:0],[_selectedBackgroundGradientColors objectAtIndex:0], nil];
+        self.selectedBackgroundGradientColors = [NSArray arrayWithObjects:[self.selectedBackgroundGradientColors objectAtIndex:0],[self.selectedBackgroundGradientColors objectAtIndex:0], nil];
     }
     
     // draw the selected background gradient
     CAGradientLayer *gradient = [CAGradientLayer layer];
     [gradient setFrame:CGRectMake(0,0,self.frame.size.width,self.frame.size.height-self.dashStroke)];
-    if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionVertical)
+    if (self.gradientDirection==StyledTableViewCellSelectionGradientDirectionVertical)
     {
         [gradient setStartPoint:CGPointMake(0, 0)];
         [gradient setEndPoint:CGPointMake(0, 1)];
     }
-    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionHorizontal)
+    else if (self.gradientDirection==StyledTableViewCellSelectionGradientDirectionHorizontal)
     {
         [gradient setStartPoint:CGPointMake(0, 0)];
         [gradient setEndPoint:CGPointMake(1, 0)];
     }
-    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight)
+    else if (self.gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight)
     {
         [gradient setStartPoint:CGPointMake(0, 0)];
         [gradient setEndPoint:CGPointMake(1, 1)];
     }
-    else if (_gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight)
+    else if (self.gradientDirection==StyledTableViewCellSelectionGradientDirectionDiagonalBottomLeftToTopRight)
     {
         [gradient setStartPoint:CGPointMake(0, 1)];
         [gradient setEndPoint:CGPointMake(1, 0)];
     }
     [self.layer insertSublayer:gradient atIndex:0];
-    [gradient setColors:_selectedBackgroundGradientColors];
+    [gradient setColors:self.selectedBackgroundGradientColors];
    
     [super drawRect:rect];
 }
@@ -131,10 +125,6 @@
 @end
 
 @implementation StyledTableViewCell
-@synthesize dashWidth = _dashWidth;
-@synthesize dashGap = _dashGap;
-@synthesize dashStroke = _dashStroke;
-@synthesize styledTableViewCellSelectionStyle = _styledTableViewCellSelectionStyle;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
