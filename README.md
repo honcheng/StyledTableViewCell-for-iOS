@@ -2,6 +2,16 @@
 StyledTableViewCell for iOS
 =================
 
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/cyan-dashes.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/cyan-dottedlines.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/purple.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/2colors.png"/>
+
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/3colors.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-horizontal.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal1.png"/>
+<img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal2.png"/>
+
 Customize table view cell border and highlight colors. 
 
 Features
@@ -89,4 +99,8 @@ ARC
 
 This project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for all the files in this project.
 
-[twitter.com/honcheng](http://twitter.com/honcheng)
+Contact
+------
+
+[twitter.com/honcheng](http://twitter.com/honcheng)  
+[honcheng.com](http://honcheng.com)
