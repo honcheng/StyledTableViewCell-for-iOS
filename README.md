@@ -12,7 +12,8 @@ StyledTableViewCell for iOS
 <img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal1.png"/>
 <img width=150 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal2.png"/>
 
-Customize table view cell border and highlight colors. 
+Customize table view cell border and highlight colors.   
+Only supports UITableViewStylePlain
 
 Features
 -------
@@ -93,6 +94,10 @@ e.g. diagonally from top left to bottom right
     [self setSelectionGradientDirection:StyledTableViewCellSelectionGradientDirectionDiagonalTopLeftToBottomRight];
 
 <img width=250 src="https://github.com/honcheng/StyledTableViewCell-for-iOS/raw/master/Screenshots/gradient-diagonal2.png"/>
+
+Supports
+--------
+Only supports UITableViewStylePlain. 
 
 Requirements
 ------------
