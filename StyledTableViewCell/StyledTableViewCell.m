@@ -77,10 +77,26 @@
 
 @end
 
+@interface StyledTableViewCellSelectedBackgroundView()
+@property (nonatomic, assign) float prevLayerHeight;
+@end
+
 @implementation StyledTableViewCellSelectedBackgroundView
 
 - (void)drawRect:(CGRect)rect
 {
+    if (self.frame.size.height!=self.prevLayerHeight)
+    {
+        for (int i=0; i<[self.layer.sublayers count]; i++)
+        {
+            id layer = [self.layer.sublayers objectAtIndex:i];
+            if ([layer isKindOfClass:[CAGradientLayer class]])
+            {
+                [layer removeFromSuperlayer];
+            }
+        }
+    }
+    
     if (!self.selectedBackgroundGradientColors)
     {
         // use this color if no gradient color exists
@@ -120,6 +136,8 @@
     [gradient setColors:self.selectedBackgroundGradientColors];
    
     [super drawRect:rect];
+    
+    self.prevLayerHeight = self.frame.size.height;
 }
 
 @end
@@ -145,6 +163,12 @@
         [self setDashWidth:1 dashGap:0 dashStroke:1];
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self.selectedBackgroundView setNeedsDisplay];
 }
 
 // set the selected background color by providing an array of colors
