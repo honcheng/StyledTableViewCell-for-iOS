@@ -65,7 +65,8 @@
     // if gap==0, draw a continuous line
     if (self.dashGap>0)
     {
-        float dash[2] = { self.dashWidth , self.dashGap};
+        const CGFloat dash[] = { self.dashWidth , self.dashGap};
+//        float dash[2] = { self.dashWidth , self.dashGap};
         CGContextSetLineDash(c,0,dash,2);
     }
     
