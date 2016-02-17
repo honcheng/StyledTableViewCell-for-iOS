@@ -104,7 +104,7 @@ Requirements
 
 * QuartzCore framework
 * This project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for all the files in this project.
-* XCode 4.4 and newer (auto-synthesis required)
+* Xcode 4.4 and newer (auto-synthesis required)
 
 Contact
 ------
